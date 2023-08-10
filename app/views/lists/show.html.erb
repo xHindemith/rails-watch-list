@@ -1,12 +1,18 @@
 <div class='container'>
   <h1><%= @list.name %> 🎥</h1>
-  <div class="card-product">
-    <img src="<%="http://source.unsplash.com/featured/?#movies>&#{rand(1000)}"%>" />
-    <div class="card-product-infos">
-      <% @list.bookmarks.each  do |bookmark|%>
-        <h2> 📝 <%= bookmark.movie.title %> </h2>
+  <% @list.bookmarks.each  do |bookmark|%>
+    <div class="card-product">
+      <%= image_tag bookmark.movie.poster_url %>
+      <div class="card-product-infos">
+        <h2><%= bookmark.movie.title %> </h2>
         <p> <%= bookmark.comment %></p>
+        <br>
+        <%= link_to '🗑️', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
       </div>
     </div>
   <% end%>
 </div>
+<div class='container'>
+  <br>
+  <%= link_to "Add new Movie",  new_list_bookmark_path(@list), class: 'btn btn-flat' %>
+  <div>

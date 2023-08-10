@@ -5,12 +5,40 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="container-fluid">
+        <%= link_to lists_path, class: 'navbar-brand' do %>
+          <%= image_tag "https://i.pinimg.com/564x/e6/2b/d2/e62bd2b62ace3e2deeb0f8ceff9f5762.jpg" %>
+        <% end %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+              <%= link_to "Create new list", new_list_path, class: 'nav-link'  %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "My Lists", lists_path, class: 'nav-link'  %>
+            </li>
+            <li class="nav-item dropdown">
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/219967163_10227917698796650_7398394330254040411_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=w8Hcl4cqLccAX_I3BOu&_nc_ht=scontent-nrt1-2.xx&oh=00_AfBQqKu15-0xTqHkeuxu6wlt1p-jxU2hPHe25NPOubPT6w&oe=64DA61FB" />
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Dont look here</a>
+                <a class="dropdown-item" href="#">this does nothing</a>
+                <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+              </div>
+            </li>
+            <!--li class="nav-item"-->
+            <!--/li-->
+          </ul>
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>

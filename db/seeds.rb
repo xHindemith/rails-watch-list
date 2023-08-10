@@ -21,7 +21,7 @@ response['results'].each do |movie_hash|
   Movie.create!(
   poster_url: "https://image.tmdb.org/t/p/w500" + movie_hash['poster_path'],
   rating: movie_hash['vote_average'],
-  title: Faker::Movie.title,
-  overview: Faker::Movie.quote
+  title: movie_hash['title'],
+  overview: movie_hash['overview']
   )
 end

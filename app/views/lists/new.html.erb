@@ -1,7 +1,11 @@
-</div class="container">
-<h1>New list form</h1>
-<%= simple_form_for @list do |f| %>
-  <%= f.input :name %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12"> <!-- Add a specific column size value -->
+      <h1>New list form</h1>
+      <%= simple_form_for @list do |f| %>
+        <%= f.input :name %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
 </div>

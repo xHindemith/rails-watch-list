@@ -1,11 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1759&q=80);">
+  <div class="container">
+    <h1>My movie lists</h1>
+    <%= link_to "Create new list", new_list_path, class: 'btn btn-flat'  %>
+  </div>
+</div>
 <div class='container'>
-  <h1>My movie lists 🎥</h1>
   <% @lists.each do |list| %>
-    <div class="card-product">
-      <img src="<%="http://source.unsplash.com/featured/?#movies>&#{rand(1000)}"%>" />
-      <div class="card-product-infos">
-        <h2> 📝 <%= link_to list.name, list_path(list) %> </h2>
+    <%= link_to list_path(list), class: "card-link" do %>
+      <div class="card-product">
+        <img src="https://source.unsplash.com/random" />
+        <div class="card-product-infos">
+          <h2><%= list.name %></h2>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
