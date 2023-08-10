@@ -1,0 +1,12 @@
+<div class='container'>
+  <h1><%= @list.name %> 🎥</h1>
+  <div class="card-product">
+    <img src="<%="http://source.unsplash.com/featured/?#movies>&#{rand(1000)}"%>" />
+    <div class="card-product-infos">
+      <% @list.bookmarks.each  do |bookmark|%>
+        <h2> 📝 <%= bookmark.movie.title %> </h2>
+        <p> <%= bookmark.comment %></p>
+      </div>
+    </div>
+  <% end%>
+</div>

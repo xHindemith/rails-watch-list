@@ -1,0 +1,11 @@
+<div class='container'>
+  <h1>My movie lists 🎥</h1>
+  <% @lists.each do |list| %>
+    <div class="card-product">
+      <img src="<%="http://source.unsplash.com/featured/?#movies>&#{rand(1000)}"%>" />
+      <div class="card-product-infos">
+        <h2> 📝 <%= link_to list.name, list_path(list) %> </h2>
+      </div>
+    </div>
+  <% end %>
+</div>
