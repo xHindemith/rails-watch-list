@@ -8,7 +8,7 @@
   <% @lists.each do |list| %>
     <%= link_to list_path(list), class: "card-link" do %>
       <div class="card-product">
-        <img src="https://source.unsplash.com/random" />
+        <%= image_tag list.photo.key.present? ? cl_image_path(list.photo.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
         <div class="card-product-infos">
           <h2><%= list.name %></h2>
         </div>
