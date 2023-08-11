@@ -15,4 +15,5 @@
 <div class='container'>
   <br>
   <%= link_to "Add new Movie",  new_list_bookmark_path(@list), class: 'btn btn-flat' %>
+  <%= link_to 'Delete list', list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-flat'  %>
   <div>
