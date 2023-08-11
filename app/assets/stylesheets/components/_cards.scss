@@ -53,23 +53,25 @@
   text-decoration: none; /* Remove underlines */
   cursor: pointer; /* Change cursor to pointer on hover */
   display: block; /* Make the link fill the entire parent container */
-  color: inherit; /* Inherit text color from parent */
+  color: #FFF6E0; /* Inherit text color from parent */
 }
 
 .card-link:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Add a background color on hover for visual feedback */
+  color:#61677A; /* Add a background color on hover for visual feedback */
 }
+
 
 .card-trip {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 20px;
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 500px;
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .card-trip h2 {
@@ -91,6 +93,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  min-height: 100px;
 }
 
 .card-trip-infos .card-trip-user {

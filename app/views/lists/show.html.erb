@@ -1,19 +1,36 @@
 <div class='container'>
-  <h1><%= @list.name %> 🎥</h1>
-  <% @list.bookmarks.each  do |bookmark|%>
-    <div class="card-product">
-      <%= image_tag bookmark.movie.poster_url %>
-      <div class="card-product-infos">
-        <h2><%= bookmark.movie.title %> </h2>
-        <p> <%= bookmark.comment %></p>
-        <br>
-        <%= link_to '🗑️', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+  <h1 class='h1-with-margin'><%= @list.name %> 🎥</h1>
+  <div class="row">
+    <% @list.bookmarks.each  do |bookmark|%>
+      <div class="col-4">
+        <div class="card-trip">
+          <%= image_tag bookmark.movie.poster_url %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= bookmark.movie.title %> </h2>
+              <p> <%= bookmark.comment %></p>
+            </div>
+            <h2 class="card-trip-pricing"> <%= link_to '🗑️', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+            </h2>
+          </div>
+        </div>
       </div>
-    </div>
-  <% end%>
-</div>
-<div class='container'>
-  <br>
-  <%= link_to "Add new Movie",  new_list_bookmark_path(@list), class: 'btn btn-flat' %>
-  <%= link_to 'Delete list', list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-flat'  %>
-  <div>
+    <% end%>
+  </div>
+  <div class='container'>
+    <br>
+    <%= link_to 'Delete list', list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-flat'  %>
+    <%= link_to "Add new Movie",  new_list_bookmark_path(@list), class: 'btn btn-flat' %>
+    <div>
+      <div class="container-form">
+        <div class="row">
+          <div class="col-sm">
+            <h1 class='h1-with-margin'>Add a new movie to the list!</h1>
+            <%= simple_form_for [@list, @bookmark], html: {'data-bs-theme': "dark"} do |f| %>
+              <%= f.association :movie %>
+              <%= f.input :comment %>
+              <%= f.submit class: 'btn btn-flat' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
